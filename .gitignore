@@ -218,3 +218,6 @@ dataset_samples/sample_100k
 #Notebooks/.production_models/XGBoostTunePRAUC.dill
 
 TEST__REJECTED_ACCEPTED_DATASET_BUILD.ipynb
+
+home-credit-default-risk
+home-credit-default-risk/
