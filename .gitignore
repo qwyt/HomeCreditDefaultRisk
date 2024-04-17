@@ -221,3 +221,9 @@ TEST__REJECTED_ACCEPTED_DATASET_BUILD.ipynb
 
 home-credit-default-risk
 home-credit-default-risk/
+
+*/.tuning_results
+*/.tuning_results/*
+
+.production_models/*
+.production_models
