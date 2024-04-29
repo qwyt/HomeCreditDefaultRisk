@@ -15,36 +15,46 @@ The upper range baseline (i.e. the best performing submission on Kaggle) is slig
 expect to beat it so our goal is to get as close as possible.
 
 The lower range baseline is a simple classification model that's only using credit rating/score columns
-EXT_SOURCE_1, EXT_SOURCE_2, EXT_SOURCE_3. It achieves an AUC of ~ 0.72. This mean that the range between them is ralatively narrow which means that even a seemingly small increase in AUC e.g. by 0.01 would be pretty signficant. 
+EXT_SOURCE_1, EXT_SOURCE_2, EXT_SOURCE_3. It achieves an AUC of ~ 0.72. This mean that the range between them is
+ralatively narrow which means that even a seemingly small increase in AUC e.g. by 0.01 would be pretty signficant.
 
 `_*An AUC of 0.5 suggests a model that performs no better than random guessing*_`
 
-Additionally, we've included a model selected using EvalML (and auto ML library) and a raw dataset (with Featuretools
-aggregations etc.)
+### Goals And Processes
 
-#### Clustering
+In addition to maximizing the AUC score we have attempted to use the model for more practical purpose of estimating loan
+quality grades (e.g. A, B, C, D etc.) based on default risk likelihood and general banking practices.
 
-Clustering before using XGBoost can simplify data and possibly improve model performance by highlighting patterns that
-XGBoost may overlook. This preprocessing step reduces dimensionality and can enhance model interpretability, but its
-effectiveness depends on data relevance and feature importance evaluation.
+We've found that
 
-##### K-Prototypes
+#### Explainability
 
-Most suitable the dataset has clear boundaries and a roughly uniform distribution for optimal results. We've been unable
-to obtain clearly defined cluster when using it and based on the type of the dataset it's probably not the most suitable
-algorithm.
+We've used LGBM which is relatively complex "blackbox" model which might not be the ideal in loan evaluations and similar tasks because it's hard to objectively explain the specific decisions the model made (based on regulatory or customer related requirements). 
 
-#### DBSCAN
+However, we believe that we were largely able to overcome this shortcoming through the use of single observation SHAP plots:
 
-Is an unsupervised algorithm which is more suitable for datasets with significant noise or irrelevant data points (e.g.
-data exhibits non-globular or irregularly shaped clusters)
+they allow us to attribute the impact of specific feature (e.g. credit scores, client income etc.) on the estimated risk which allows to select an appropriate grade, interest rate and decide whether the loan should or should not be approved based on our acceptable risk preferences: 
 
-Feature
 
-- We've experimented
+### Pipeline and Technical Details
 
-#https://www.kaggle.com/c/home-credit-default-risk/data
+
+#### Model selection
+- We have started with a wider group of models such as Logit, XGBoost, CatBoost and LGBM we have found that LGBM provided the best performance and training speed out of the box and some initial tuning so it was selection for our production model (we've tried different approaches like combining the outcomes of XGBoost and LGBM into an ensemble model but this has provided poorer performance)
+
+- Feature engineering and selection:
+  - All the features from the `application_train.csv` are included
+  - Specific grouped and/or aggregated features are created  manually (based on subject knowledge) from the `bureau.csv` and `previous_applications.csv` (e.g. based on main client, default loans, rejected applications, repayment history etc.)
+  - `Featuretools Deep Feature Synthesis` package is used to generate a large number of aggregated features which might be potentially useful for the analysis.
+ - General clean up and processing is performed (however almost no data imputation was done for missing values because in most cases they seem to represent valid data points (e.g. `car age` = `NaN` etc.) and because complex models like LGBM handle his internally we judged it to be not necessary).
+
+- Initial Baseline Models:
+ - We have started with two LGBM models `Base` (only 121 features included features from the `application_test.csv) and `Full` (224 features, based on manual and Featuretools aggregations).
+ - 
+
 
 #### Tuning:
+
+
 - Bayesian optimization with Optuna
 - Multi objective optimization (i.e. for auc, pr-auc, f1, time) [TODO]
