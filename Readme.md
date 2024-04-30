@@ -21,7 +21,7 @@ Notebooks and Model
 
 #### Feature Selection and Aggregation
 
-Feature Tools DFS is used for feature engineering in combination with manual aggregations. Currently, these include:
+Feature Tools DFS was  used for feature engineering in combination with manual aggregations. Currently, these include:
 
 - bureau.csv
 - previous_application.csv
@@ -38,11 +38,13 @@ ralatively narrow which means that even a seemingly small increase in AUC e.g. b
 
 `_*An AUC of 0.5 suggests a model that performs no better than random guessing*_`
 
-### Goals And Processes
+### Additional Goals
 
-In addition to maximizing the AUC score we have attempted to use the model for more practical purpose of estimating loan
-quality grades (e.g. A, B, C, D etc.) based on default risk likelihood and general banking practices.
-
+In addition to building a classification model we've used the estimating propabilities to:
+- Build a Risk-Based Pricing model (using calibrarted thresholds) for determining optimal interest rates (relative to an arbitrary expected portfolio rate of return).
+- Assign loan quality grades based on default risk.
+- Calculate overal and per grade hypothetical portfolio returns. 
+- Calculate change in portfolio returns if the selected LGBM model is used to accepted/reject loan applications.
 
 #### Explainability
 
@@ -54,7 +56,6 @@ they allow us to attribute the impact of specific feature (e.g. credit scores, c
 
 
 ### Pipeline and Technical Details
-
 
 #### Model selection
 - We have started with a wider group of models such as Logit, XGBoost, CatBoost and LGBM we have found that LGBM provided the best performance and training speed out of the box and some initial tuning so it was selection for our production model (we've tried different approaches like combining the outcomes of XGBoost and LGBM into an ensemble model but this has provided poorer performance)
@@ -70,5 +71,4 @@ they allow us to attribute the impact of specific feature (e.g. credit scores, c
 
 
 #### Tuning:
-- Bayesian optimization with Optuna
-- Multi objective optimization (i.e. for auc, pr-auc, f1, time) [TODO]
+- Bayesian optimization with Optuna (around 100-150 trials depending on specific model)
