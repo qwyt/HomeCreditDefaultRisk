@@ -46,6 +46,20 @@ In addition to building a classification model we've used the estimating propabi
 - Calculate overal and per grade hypothetical portfolio returns. 
 - Calculate change in portfolio returns if the selected LGBM model is used to accepted/reject loan applications.
 
+|                         | Actual       | Hypothetical |
+|-------------------------|--------------|--------------|
+| Total Loan Amount       | 18503.7355M  | 13522.2582M  |
+| Total Interest Paid     | 17.3487M     | 13.7148M     |
+| Total Return %          | 0.09%        | 0.10%        |
+| Default Rate            | 8.30%        | 2.96%        |
+| Total Loss              | 1435.5231M   | 208.7593M    |
+| Losses Avoided          | None         | 1226.7638M   |
+| Interest Lost           | None         | -3.6339M     |
+| Total Applications Accepted | 30752    | 21442        |
+
+
+Using our model to employ a more conservative lending strategy would pottentially allow Home Credit to decrease their loses by up to ~80% (based on hypotehetical base interest rate, calculation would need to be performed using actual interest rates offered by Home Credit and LGD ratio).
+
 #### Explainability
 
 We've used LGBM which is relatively complex "blackbox" model which might not be the ideal in loan evaluations and similar tasks because it's hard to objectively explain the specific decisions the model made (based on regulatory or customer related requirements). 
