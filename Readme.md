@@ -5,6 +5,17 @@ Notebooks and Model
 
 [Model and Analysis](https://qwyt.github.io/ML.4.1_presentation/2.0_Model.html)
 
+## Summary
+
+| Model                            |   auc | pr_auc | target_f1 | target_recall | target_precision |
+|----------------------------------|-------|--------|-----------|---------------|------------------|
+| LGBM (dart)                      | 0.775 |  0.263 |     0.291 |         0.654 |            0.187 |
+| LGBM (                           | 0.774 |  0.261 |     0.290 |         0.661 |            0.186 |
+| LGBM (all features)              | 0.773 |  0.262 |     0.290 |         0.658 |            0.186 |
+| LGBM (only applications ds)      | 0.759 |  0.243 |     0.273 |         0.661 |            0.172 |
+| Baseline_Only_CreditRatings      | 0.723 |  0.202 |     0.244 |         0.657 |            0.150 |
+| Best Kaggle Competition Models   | 0.8   |   --   |      --   |          --   |             --   |
+
 
 ### Feature Engineering
 
