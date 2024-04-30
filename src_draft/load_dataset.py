@@ -5,7 +5,9 @@ import numpy as np
 from sklearn.model_selection import train_test_split
 
 
-def _internal_split_and_save_dfs(df: pd.DataFrame, base_output_dir: str, ds_key: str, no_split=False):
+def _internal_split_and_save_dfs(
+    df: pd.DataFrame, base_output_dir: str, ds_key: str, no_split=False
+):
     def save_parquet(df, subdir, filename):
         output_dir = os.path.join(base_output_dir, subdir)
         os.makedirs(output_dir, exist_ok=True)
@@ -35,7 +37,7 @@ def _internal_split_and_save_dfs(df: pd.DataFrame, base_output_dir: str, ds_key:
 
 
 def split_datasets_combined_accepted_rejected(
-        base_output_dir="../dataset",
+    base_output_dir="../dataset",
 ):
     FILE_PATH_TRAIN = "../home-credit-default-risk/application_train.csv"
     FILE_PATH_TEST = "../home-credit-default-risk/application_test.csv"
@@ -46,35 +48,63 @@ def split_datasets_combined_accepted_rejected(
     print(f"Total Lines in Source application_train: {len(app_train_df)}")
     print(f"Total Lines in Source application_test: {len(app_test_df)}")
 
-    _internal_split_and_save_dfs(app_train_df, base_output_dir=base_output_dir, ds_key="app_train")
-    _internal_split_and_save_dfs(app_test_df, base_output_dir=base_output_dir, ds_key="app_test")
+    _internal_split_and_save_dfs(
+        app_train_df, base_output_dir=base_output_dir, ds_key="app_train"
+    )
+    _internal_split_and_save_dfs(
+        app_test_df, base_output_dir=base_output_dir, ds_key="app_test"
+    )
 
     FILE_PATH_BUREU = "../home-credit-default-risk/bureau.csv"
     bureau_df = pd.read_csv(FILE_PATH_BUREU)
-    _internal_split_and_save_dfs(bureau_df, base_output_dir=base_output_dir, ds_key="bureau", no_split=True)
+    _internal_split_and_save_dfs(
+        bureau_df, base_output_dir=base_output_dir, ds_key="bureau", no_split=True
+    )
 
     FILE_PATH_BUREU = "../home-credit-default-risk/bureau_balance.csv"
     bureau_df = pd.read_csv(FILE_PATH_BUREU)
-    _internal_split_and_save_dfs(bureau_df, base_output_dir=base_output_dir, ds_key="bureau_balance", no_split=True)
+    _internal_split_and_save_dfs(
+        bureau_df,
+        base_output_dir=base_output_dir,
+        ds_key="bureau_balance",
+        no_split=True,
+    )
 
     FILE_PATH_BUREU = "../home-credit-default-risk/credit_card_balance.csv"
     bureau_df = pd.read_csv(FILE_PATH_BUREU)
-    _internal_split_and_save_dfs(bureau_df, base_output_dir=base_output_dir, ds_key="credit_card_balance",
-                                 no_split=True)
+    _internal_split_and_save_dfs(
+        bureau_df,
+        base_output_dir=base_output_dir,
+        ds_key="credit_card_balance",
+        no_split=True,
+    )
 
     FILE_PATH_BUREU = "../home-credit-default-risk/installments_payments.csv"
     bureau_df = pd.read_csv(FILE_PATH_BUREU)
-    _internal_split_and_save_dfs(bureau_df, base_output_dir=base_output_dir, ds_key="installments_payments",
-                                 no_split=True)
+    _internal_split_and_save_dfs(
+        bureau_df,
+        base_output_dir=base_output_dir,
+        ds_key="installments_payments",
+        no_split=True,
+    )
 
     FILE_PATH_BUREU = "../home-credit-default-risk/previous_application.csv"
     bureau_df = pd.read_csv(FILE_PATH_BUREU)
-    _internal_split_and_save_dfs(bureau_df, base_output_dir=base_output_dir, ds_key="previous_application",
-                                 no_split=True)
+    _internal_split_and_save_dfs(
+        bureau_df,
+        base_output_dir=base_output_dir,
+        ds_key="previous_application",
+        no_split=True,
+    )
 
     FILE_PATH_BUREU = "../home-credit-default-risk/POS_CASH_balance.csv"
     bureau_df = pd.read_csv(FILE_PATH_BUREU)
-    _internal_split_and_save_dfs(bureau_df, base_output_dir=base_output_dir, ds_key="POS_CASH_balance", no_split=True)
+    _internal_split_and_save_dfs(
+        bureau_df,
+        base_output_dir=base_output_dir,
+        ds_key="POS_CASH_balance",
+        no_split=True,
+    )
 
 
 if __name__ == "__main__":
