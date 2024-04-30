@@ -1,6 +1,6 @@
 Notebooks and Model
 
-[Notebboks: Table of Contents](https://qwyt.github.io/turing_m3_s3_publish/index.html](https://qwyt.github.io/ML.4.1_presentation/)
+[Notebboks: Table of Contents](https://qwyt.github.io/ML.4.1_presentation/)
 
 
 [Model and Analysis](https://qwyt.github.io/ML.4.1_presentation/2.0_Model.html)
