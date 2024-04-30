@@ -1,3 +1,9 @@
+Notebooks and Model
+
+[Notebboks: Table of Contents]([https://qwyt.github.io/turing_m3_s3_publish/index.html](https://qwyt.github.io/ML.4.1_presentation/))
+[Model and Analysis]([https://qwyt.github.io/ML.4.1_presentation/2.0_Model.html])
+
+
 ### Feature Engineering
 
 #### Feature Selection and Aggregation
@@ -7,7 +13,6 @@ Feature Tools DFS is used for feature engineering in combination with manual agg
 - bureau.csv
 - previous_application.csv
 - credit_card_balance.csv
--
 
 #### Evaluation and Baseline
 
@@ -25,7 +30,6 @@ ralatively narrow which means that even a seemingly small increase in AUC e.g. b
 In addition to maximizing the AUC score we have attempted to use the model for more practical purpose of estimating loan
 quality grades (e.g. A, B, C, D etc.) based on default risk likelihood and general banking practices.
 
-We've found that
 
 #### Explainability
 
@@ -50,11 +54,8 @@ they allow us to attribute the impact of specific feature (e.g. credit scores, c
 
 - Initial Baseline Models:
  - We have started with two LGBM models `Base` (only 121 features included features from the `application_test.csv) and `Full` (224 features, based on manual and Featuretools aggregations).
- - 
 
 
 #### Tuning:
-
-
 - Bayesian optimization with Optuna
 - Multi objective optimization (i.e. for auc, pr-auc, f1, time) [TODO]
