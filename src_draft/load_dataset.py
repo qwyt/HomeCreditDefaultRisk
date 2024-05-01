@@ -108,7 +108,4 @@ def split_datasets_combined_accepted_rejected(
 
 
 if __name__ == "__main__":
-    # split_and_save_datasets_for_accepted(
-    #     "../dataset/lending-club/accepted_2007_to_2018q4.csv/accepted_2007_to_2018Q4.csv"
-    # )
     split_datasets_combined_accepted_rejected()
