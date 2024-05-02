@@ -30,14 +30,20 @@ def generate_pydantic_model_from_df(df, model_name="DynamicModel"):
         dtype = df[col].dtype
         default_value = None if pd.isna(defaults[col]) else defaults[col]
 
-        if dtype.name == 'category':
-            field_type = (str, default_value)  # maintain as string but set default correctly
-        elif dtype.name == 'int64':
+        if dtype.name == "category":
+            field_type = (
+                str,
+                default_value,
+            )  # maintain as string but set default correctly
+        elif dtype.name == "int64":
             field_type = (int, default_value)
-        elif dtype.name == 'float64':
+        elif dtype.name == "float64":
             field_type = (float, default_value)
         else:
-            field_type = (str, default_value)  # fallback to string for any unhandled types
+            field_type = (
+                str,
+                default_value,
+            )  # fallback to string for any unhandled types
 
         fields[col] = field_type
 
