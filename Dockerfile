@@ -14,6 +14,7 @@ RUN pip install featuretools
 
 COPY ./dataset/full/* ./dataset/full/*
 COPY ./shared ./shared
+COPY ./Draft ./Draft
 COPY ./src_draft ./src_draft
 COPY ./Notebooks/.production_models/LGBM_AUC_Base_Features.dill ./Notebooks/.production_models/LGBM_AUC_Base_Features.dill
 
