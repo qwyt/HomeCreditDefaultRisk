@@ -10,6 +10,7 @@ RUN pip install PyYAML
 RUN pip install pyarrow
 RUN pip install fastparquet
 RUN pip install dill
+RUN pip install featuretools
 
 COPY ./dataset/full/* ./dataset/full/*
 COPY ./shared ./shared
