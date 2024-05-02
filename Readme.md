@@ -2,7 +2,7 @@
 
 
 ## Please use the published HTML notebooks instead of viewing them directly in Github (due to formatting issues)
-## [Main Presentation](https://qwyt.github.io/ML.4.1_presentation/presentation.html)
+## [Main Presentation](https://qwyt.github.io/ML.4.1_presentation/presentation.html) ([with code](https://qwyt.github.io/ML.4.1_presentation/presentation_with_code.html))
 
 [All Notebooks: Table of Contents](https://qwyt.github.io/ML.4.1_presentation/index.html)
 
@@ -79,6 +79,11 @@ They allow us to attribute the impact of specific features (e.g., credit scores,
 - `Featuretools Deep Feature Synthesis` package is used to generate a large number of aggregated features which might be potentially useful for the analysis.
 - General cleanup and processing is performed (however, almost no data imputation was done for missing values because, in most cases, they seem to represent valid data points (e.g., `car age` = `NaN`) and because complex models like LGBM handle this internally, we judged it to be not necessary).
 
-#### Tuning:
+#### Production Model:
 
-- Bayesian optimization with Optuna (around 100-150 trials depending on the specific model).
+- Deployed production model available [here](http://138.2.181.135/docs#/default).
+
+### Additional Notes:
+
+- most of the code for running the data processing, ML pipelines, charting and other stuff is in the `shared` folder (git submodule from a separate repository [here](https://github.com/qwyt/ml_tools_utils/tree/4657f9b9a49268b3772d732c89b8b9eb9110418a))
+
