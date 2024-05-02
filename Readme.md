@@ -81,4 +81,9 @@ They allow us to attribute the impact of specific features (e.g., credit scores,
 
 #### Production Model:
 
-- Deployed production model available [here](http://138.2.181.135/docs#/default): 
+- Deployed production model available [here](http://138.2.181.135/docs#/default).
+
+### Additional Notes:
+
+- most of the code for running the data processing, ML pipelines, charting and other stuff is in the `shared` folder (git submodule from a separate repository [here](https://github.com/qwyt/ml_tools_utils/tree/4657f9b9a49268b3772d732c89b8b9eb9110418a))
+
