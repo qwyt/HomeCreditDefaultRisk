@@ -10,12 +10,10 @@ RUN pip install PyYAML
 RUN pip install pyarrow
 RUN pip install fastparquet
 RUN pip install dill
-RUN pip install optuna
 
-
-COPY ./src_draft ./src_draft
-COPY ./shared ./shared
 COPY ./dataset/full/* ./dataset/full/*
+COPY ./shared ./shared
+COPY ./src_draft ./src_draft
 COPY ./Notebooks/.production_models/LGBM_AUC_Base_Features.dill ./Notebooks/.production_models/LGBM_AUC_Base_Features.dill
 
 COPY ./api ./api
