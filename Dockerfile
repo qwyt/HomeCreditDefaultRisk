@@ -12,7 +12,7 @@ RUN pip install fastparquet
 RUN pip install dill
 RUN pip install featuretools
 
-COPY ./dataset/full/* ./dataset/full/*
+COPY ./dataset/full ./dataset/full
 COPY ./shared ./shared
 COPY ./Draft ./Draft
 COPY ./src_draft ./src_draft
