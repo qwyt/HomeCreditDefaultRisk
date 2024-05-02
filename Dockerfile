@@ -13,7 +13,7 @@ RUN pip install dill
 RUN pip install optuna
 
 
-COPY ./src ./src
+COPY ./src_draft ./src_draft
 COPY ./shared ./shared
 COPY ./dataset/full/* ./dataset/full/*
 COPY ./Notebooks/.production_models/LGBM_AUC_Base_Features.dill ./Notebooks/.production_models/LGBM_AUC_Base_Features.dill
