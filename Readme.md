@@ -2,7 +2,7 @@
 
 
 ## Please use the published HTML notebooks instead of viewing them directly in Github (due to formatting issues)
-## [Main Presentation](https://qwyt.github.io/ML.4.1_presentation/presentation.html)
+## [Main Presentation](https://qwyt.github.io/ML.4.1_presentation/presentation.html) ([with code](https://qwyt.github.io/ML.4.1_presentation/presentation_with_code.html))
 
 [All Notebooks: Table of Contents](https://qwyt.github.io/ML.4.1_presentation/index.html)
 
