@@ -21,8 +21,6 @@ COPY ./Notebooks/.production_models/LGBM_AUC_Base_Features.dill ./Notebooks/.pro
 COPY ./api ./api
 
 CMD ["uvicorn", "api.main:app", "--host", "0.0.0.0", "--port", "8000"]
-#CMD ["tail", "-f", "/dev/null"]
-
 
 
 
