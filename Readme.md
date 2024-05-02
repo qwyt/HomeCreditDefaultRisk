@@ -79,6 +79,6 @@ They allow us to attribute the impact of specific features (e.g., credit scores,
 - `Featuretools Deep Feature Synthesis` package is used to generate a large number of aggregated features which might be potentially useful for the analysis.
 - General cleanup and processing is performed (however, almost no data imputation was done for missing values because, in most cases, they seem to represent valid data points (e.g., `car age` = `NaN`) and because complex models like LGBM handle this internally, we judged it to be not necessary).
 
-#### Tuning:
+#### Production Model:
 
-- Bayesian optimization with Optuna (around 100-150 trials depending on the specific model).
+- Deployed production model available [here](http://138.2.181.135/docs#/default): 
