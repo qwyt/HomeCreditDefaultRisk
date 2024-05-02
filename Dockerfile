@@ -15,8 +15,8 @@ RUN pip install optuna
 
 COPY ./src ./src
 COPY ./shared ./shared
-COPY ./dataset_samples/sample_10k/train_test.parquet ./dataset_samples/sample_10k/train_test.parquet
-COPY ./Notebooks/.production_models/XGBoostTuneF1.dill ./Notebooks/.production_models/XGBoostTuneF1.dill
+COPY ./dataset/full/* ./dataset/full/*
+COPY ./Notebooks/.production_models/LGBM_AUC_Base_Features.dill ./Notebooks/.production_models/LGBM_AUC_Base_Features.dill
 
 COPY ./api ./api
 
